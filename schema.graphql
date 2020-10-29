@@ -1,0 +1,37 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ItemType {
+  id: ID!
+  name: String!
+  description: String!
+  status: Boolean!
+  createdDate: DateTime
+  changedDate: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  items: [ItemType!]!
+
+  """Pass item id and recceive record by that id"""
+  itemById(id: String!): ItemType!
+  hello: String!
+}
+
+type Mutation {
+  createItem(input: ItemInput!): ItemType!
+  updateItem(input: ItemInput!, id: String!): ItemType!
+  deleteItem(id: String!): ItemType!
+}
+
+input ItemInput {
+  name: String
+  description: String
+  status: Boolean
+}
